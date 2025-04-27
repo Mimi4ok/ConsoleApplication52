@@ -34,8 +34,7 @@ public:
         if (denom == 0) {
             cout << "Denominator cannot be zero. Set to 1." << endl;
             denum = 1;
-        }
-        else {
+        } else {
             denum = denom;
         }
         simplify();
@@ -60,23 +59,23 @@ public:
         }
     }
 
-    Fraction operator+(const Fraction& other) const {
+    Fraction add(const Fraction& other) const {
         int n = num * other.denum + other.num * denum;
         int denom = denum * other.denum;
         return Fraction(n, denom);
     }
 
-    Fraction operator-(const Fraction& other) const {
+    Fraction subtract(const Fraction& other) const {
         int n = num * other.denum - other.num * denum;
         int denom = denum * other.denum;
         return Fraction(n, denom);
     }
 
-    Fraction operator*(const Fraction& other) const {
+    Fraction multiply(const Fraction& other) const {
         return Fraction(num * other.num, denum * other.denum);
     }
 
-    Fraction operator/(const Fraction& other) const {
+    Fraction divide(const Fraction& other) const {
         return Fraction(num * other.denum, denum * other.num);
     }
 };
@@ -89,10 +88,10 @@ int main() {
     cout << "Enter the second fraction:\n";
     b.input();
 
-    Fraction sum = a + b;
-    Fraction diff = a - b;
-    Fraction prod = a * b;
-    Fraction quot = a / b;
+    Fraction sum = a.add(b);
+    Fraction diff = a.subtract(b);
+    Fraction prod = a.multiply(b);
+    Fraction quot = a.divide(b);
 
     cout << "\nSum: ";
     sum.print();
